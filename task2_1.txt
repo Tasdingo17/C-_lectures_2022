@@ -1,0 +1,7 @@
+Ответ: std::vector<bool> v. В случае auto& - не скомпилируется, в случае auto&& отработает
+
+Пояснение:
+возьмем std::vector<bool> v{true, false}. Он хранит rvalue выражения.
+[C++14: 2.14.6/1]: The Boolean literals are the keywords false and true. Such literals are prvalues and have type bool.
+
+auto& a: v пытается создать lvalue reference на rvalue выражение - компилятор не прощает.
